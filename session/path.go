@@ -21,7 +21,7 @@ func DeterminePath(choice string) (string, error) {
 	}
 	fullPath := dir.FullPath(choice)
 
-	realPath, err := filepath.EvalSymlinks(choice)
+	realPath, err := filepath.EvalSymlinks(fullPath)
 	if err == nil && path.IsAbs(realPath) {
 		return realPath, nil
 	}
